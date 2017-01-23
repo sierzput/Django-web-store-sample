@@ -297,6 +297,10 @@ coverage.xml
 # Django stuff:
 *.log
 local_settings.py
+db.sqlite3
+# migrations/
+media/
+settings.py
 
 # Flask stuff:
 instance/
