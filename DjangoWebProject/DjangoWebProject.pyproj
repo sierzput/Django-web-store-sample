@@ -32,6 +32,9 @@
     <Compile Include="app\admin.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="app\CartListItem.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="app\forms.py" />
     <Compile Include="app\models.py" />
     <Compile Include="app\tests.py" />
@@ -60,6 +63,9 @@
     <Folder Include="DjangoWebProject\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\templates\app\itemDetails.html" />
+    <Content Include="app\templates\app\cart.html" />
+    <Content Include="app\templates\app\itemsList.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
     <Content Include="app\static\app\content\bootstrap.css" />

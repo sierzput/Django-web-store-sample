@@ -1,0 +1,19 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}</h2>
+
+<div class="row">
+    <div class="col-md-8">
+        <p class="btn-group-justified">{{ item.description }}</p>
+    </div>
+    <div class="col-md-2">
+        <span>{{ item.price }} zł</span>
+    </div>
+    <div class="col-md-2">
+        <a class="btn btn-default" href="{% url 'add to cart' item.id %}">Dodaj do koszyka</a>
+    </div>
+</div>
+
+{% endblock %}

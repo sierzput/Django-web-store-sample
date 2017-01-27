@@ -35,6 +35,7 @@ urlpatterns = [
             'next_page': '/',
         },
         name='logout'),
+    url(r'^accounts/', include('registration.backends.hmac.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

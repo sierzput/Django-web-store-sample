@@ -1,0 +1,64 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}</h2>
+
+{% if cartItems %}
+<div class="row panel-heading">
+    <div class="col-md-offset-9 col-md-2">
+        <a href="{% url 'buy' %}" class="btn btn-xs btn-warning text-right">Wyczyść zawartość koszyka</a>
+    </div>
+</div>
+<div class="row panel-title">
+    <div class="col-md-3">
+        <p>Produkt</p>
+    </div>
+    <div class="col-md-3">
+        Cena jednostkowa
+    </div>
+    <div class="col-md-3">
+        Ilość
+    </div>
+    <div class="col-md-3">
+        Cena całkowita
+    </div>
+</div>
+{% for item in cartItems %}
+<div class="row panel">
+    <div class="col-md-3">
+        <a class="btn-link" href="{% url 'item details' item.item_id %}">{{ item.item_name }}</a>
+    </div>
+    <div class="col-md-3">
+        {{ item.price }} zł
+    </div>
+    <div class="col-md-3">
+        <a class="btn btn-sm btn-danger" href="{% url 'remove from cart' item.item_id %}">-</a>
+        <span class="btn">{{ item.quantity }}</span>
+        <a class="btn btn-sm btn-success" href="{% url 'add to cart' item.item_id %}">+</a>
+    </div>
+    <div class="col-md-3">
+        <p>{{ item.total }}</p>
+    </div>
+</div>
+{% endfor %}
+<div class="row panel-footer">
+    <div class="col-md-offset-8 col-md-1">
+        <span class="text-right">Razem:</span>
+    </div>
+    <div class="col-md-3">
+        {{ total }} zł
+    </div>
+</div>
+<div class="row panel-heading">
+    <div class="col-md-offset-8 col-md-4">
+    <p><a href="{% url 'buy' %}" class="btn btn-primary btn-large">Dokonaj zakupu</a></p>
+    </div>
+</div>
+{% else %}
+<div class="jumbotron">
+    <p class="lead">Twój koszyk jest pusty.</p>
+</div>
+{% endif %}
+
+{% endblock %}

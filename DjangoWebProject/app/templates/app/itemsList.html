@@ -1,0 +1,32 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}</h2>
+
+<div class="row panel-title">
+    <div class="col-md-4">
+        <p>Produkt</p>
+    </div>
+    <div class="col-md-4">
+        Cena jednostkowa
+    </div>
+    <div class="col-md-4">
+        <p></p>
+    </div>
+</div>
+{% for item in items %}
+<div class="row">
+    <div class="col-md-4">
+        <p><a class="btn-link" href="{% url 'item details' item.id %}">{{ item.name }}</a></p>
+    </div>
+    <div class="col-md-4">
+        {{ item.price }} zł
+    </div>
+    <div class="col-md-4">
+        <p><a class="btn btn-default" href="{% url 'add to cart' item.id %}">Dodaj do koszyka</a></p>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}
