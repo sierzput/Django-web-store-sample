@@ -6,5 +6,4 @@ urlpatterns = [
     url(r'^items/$', views.itemsList, name='items'),
     url(r'^items/(?P<id>[0-9]+)/$', views.itemDetails, name='item details'),
     url(r'^contact$', views.contact, name='contact'),
-    url(r'^about', views.about, name='about'),
 ]
